@@ -11,4 +11,5 @@ yum install jenkins -y
 #STEP-4: RESTARTING JENKINS (when we download service it will on stopped state)
 systemctl enable jenkins.service
 systemctl start jenkins.service
+systemctl daemon-reload
 systemctl status jenkins.service
