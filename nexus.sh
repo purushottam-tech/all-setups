@@ -28,6 +28,24 @@ Restart=on-abort
 
 [Install]
 WantedBy=multi-user.target
+
+
+# new script
+=============================
+sudo yum update -y
+sudo yum install wget -y
+sudo yum install java-1.8.0-openjdk.x86.64 -y
+sudo mkdir /app && cd /app
+sudo wget https://download.sonatype.com/nexus/3/nexus-3.82.0-08-linux-x86_64.tar.gz
+sudo tar -xvf nexus-3.82.0-08-linux-x86_64.tar.gz
+sudo rm nexus-3.82.0-08-linux-x86_64.tar.gz 
+sudo mv nexus-3.82.0-08 nexus
+sudo adduser nexus
+sudo chown -R nexus:nexus /app/nexus
+sudo chown -R nexus:nexus /app/sonatype-work
+echo 'run_as_user="nexus"' | sudo tee /app/nexus/bin/nexus.rc > /dev/null
+./nexus/bin/nexus start
+./nexus/bin/nexus status
 EOL
 sudo chkconfig nexus on
 sudo systemctl start nexus
