@@ -1,16 +1,16 @@
 - hosts: all
   tasks:
-    - name: download tomcat from dlcdn
+    - name: download tomcat from downloads
       get_url:
-        url: "https://dlcdn.apache.org/tomcat/tomcat-9/v9.0.98/bin/apache-tomcat-9.0.98.tar.gz"
+        url: "https://downloads.apache.org/tomcat/tomcat-9/v9.0.107/bin/apache-tomcat-9.0.107.tar.gz"
         dest: "/root/"
 
     - name: untar the apache file
-      command: tar -zxvf apache-tomcat-9.0.98.tar.gz
+      command: tar -zxvf apache-tomcat-9.0.107.tar.gz
 
 
     - name: rename the tomcat
-      command: mv apache-tomcat-9.0.98 tomcat
+      command: mv apache-tomcat-9.0.107 tomcat
       tags: abc
 
 
