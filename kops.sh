@@ -13,11 +13,11 @@ kubectl version --client
 kops version
 
 aws s3api create-bucket \
---bucket devopsbatchapr600pm776789dope.k8s.local \
+--bucket devopsbatchapr600pm7767891dope.k8s.local \
 --region ap-south-1 \
 --create-bucket-configuration LocationConstraint=ap-south-1
-aws s3api get-bucket-versioning --bucket devopsbatchapr600pm776789dope.k8s.local --region ap-south-1
-export KOPS_STATE_STORE=s3://devopsbatchapr600pm776789dope.k8s.local
+aws s3api get-bucket-versioning --bucket devopsbatchapr600pm7767891dope.k8s.local --region ap-south-1
+export KOPS_STATE_STORE=s3://devopsbatchapr600pm7767891dope.k8s.local
 
 kops create cluster --name purushottam.k8s.local --zones ap-south-1b --master-count=1 --master-size t3.medium --node-count=2 --node-size t3.micro
 kops update cluster --name purushottam.k8s.local --yes --admin
